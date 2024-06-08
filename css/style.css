@@ -1,0 +1,65 @@
+.word {
+    margin-top: 20px;
+}
+
+tr.alt {
+    background-color: #eeeeee;
+}
+
+.word th, .word td {
+    padding: 10px;
+}
+
+.wordsc hr {
+    background-color: #cccccc;
+    height: 1px;
+    margin: 0px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.sidebar {
+    padding-left: 5%;
+    padding-top: 2%;
+    background-color: cornsilk;
+}
+
+.main-body {
+    padding-left: 15%;
+}
+
+.contact_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: auto;
+}
+
+/*..*/
+
+#blood_group_chart{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: auto;
+    padding-top: 50px;
+}
+
+#blood_donation_speech{
+    text-align: justify;
+    padding-left: 20px;
+}
+
+#map{
+    padding-left: 20px;
+}
+
+#request_button{
+    /*width: 1px;*/
+    /*height: auto;*/
+    /*font-size: 2px;*/
+}
