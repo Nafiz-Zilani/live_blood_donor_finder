@@ -126,49 +126,6 @@ while ($_data2 = mysqli_fetch_assoc($result2)){
         captionText.innerHTML = element.alt;
     }
 
-
-    //function user_location() {
-    //    let testValue2 = <?php //=json_encode($data)?>//;
-    //    let mapOptions = {
-    //        center:[testValue2[0].x, testValue2[0].y],
-    //        zoom:15
-    //    }
-    //
-    //    let map = new L.map('map' , mapOptions);
-    //
-    //    let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-    //    map.addLayer(layer);
-    //
-    //    let locations = [];
-    //
-    //    for (let i = 0; i < testValue2.length; i++) {
-    //        locations.push({});
-    //    }
-    //
-    //    for (let i = 0; i < testValue2.length; i++) {
-    //        locations[i].lat = testValue2[i].x;
-    //        locations[i].long = testValue2[i].y;
-    //        locations[i].title = testValue2[i].user_name;
-    //    }
-    //
-    //    let popupOption = {
-    //        "closeButton":false
-    //    }
-    //
-    //    locations.forEach(element => {
-    //        new L.Marker([element.lat,element.long]).addTo(map)
-    //            .on("mouseover",event =>{
-    //                event.target.bindPopup('<div class="card"><h3>'+element.title+'</h3></div>',popupOption).openPopup();
-    //            })
-    //            .on("mouseout", event => {
-    //                event.target.closePopup();
-    //            })
-    //            .on("click" , () => {
-    //                window.open(element.url);
-    //            })
-    //    });
-    //}
-
     function call() {
         let testValue2 = <?=json_encode($data2)?>;
         let mapOptions = {

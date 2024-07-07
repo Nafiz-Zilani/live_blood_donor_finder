@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_user_id = $_SESSION['id'] ?? 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +29,13 @@
             <a href="home.php" class="w3-bar-item w3-button"><img src="image/home.png" alt="Home"></a>
             <a href="about.php" class="w3-bar-item w3-button">About US</a>
             <a href="contact.php" class="w3-bar-item w3-button">Contact</a>
-            <a href="login.php" class="w3-bar-item w3-button" style="color: firebrick">Log In</a>
+            <?php
+            if ($_user_id){
+                ?>
+                <a href="login.php" class="w3-bar-item w3-button" style="color: firebrick"><img src="image/login.png" height="30px"></a>
+            <?php }else{?>
+                <a href="login.php" class="w3-bar-item w3-button" style="color: firebrick">Log In</a>
+            <?php }?>
         </div>
     </div>
 </div>

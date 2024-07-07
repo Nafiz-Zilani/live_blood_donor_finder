@@ -71,6 +71,7 @@ while ($_data = mysqli_fetch_assoc($result)){
         <p style="padding-left: 5%">Notification</p>
     </h1>
     <div class="main-body">
+        <form id="from01" method="post" action="action.php">
         <table>
             <thead>
             <tr>
@@ -88,11 +89,22 @@ while ($_data = mysqli_fetch_assoc($result)){
                 for ($i=0; $i<$length; $i++){
                     ?>
                     <tr>
-                        <td><?php echo $data[$i]['reference_id'] ?></td>
+                        <td><input type="hidden" name="refid" id="refid" value="<?php echo $data[$i]['reference_id'] ?>"><?php echo $data[$i]['reference_id'] ?></td>
                         <td><?php echo $data[$i]['user'] ?></td>
                         <td><?php echo $data[$i]['user_contact'] ?></td>
-                        <td><?php echo $data[$i]['status'] ?></td>
-                        <td><input type="submit" value="Accept"> | <input type="submit" value="Decline"></td>
+                        <td><?php
+                                if ($data[$i]['status'] == 1){
+                                    echo"Accepted";
+                                } else if($data[$i]['status'] == 2){
+                                    echo"Decline";
+                                } else {
+                                    echo"Pending";
+                                }
+                            ?></td>
+                        <td>
+                            <input type="submit" id="status" name="status" value="Accept"> | <input type="submit" id="status" name="status" value="Decline">
+                            <input type="hidden" name="action" id="action" value="accept">
+                        </td>
                     </tr>
                     <?php
                 }
@@ -100,6 +112,7 @@ while ($_data = mysqli_fetch_assoc($result)){
             ?>
             </tbody>
         </table>
+        </form>
     </div>
 </div>
 <script>

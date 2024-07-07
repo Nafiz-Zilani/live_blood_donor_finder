@@ -74,8 +74,6 @@ $_user_number = $_POST['number'];
                 <div class="formc">
                     <form id="from3" method="post" action="action.php">
                         <h3>User Info</h3>
-
-                        <!--                    for update-->
                         <label for="name">Name</label>
                         <input type="text" id="donor_name" name="donor_name" value="<?php echo($_user_name);?>">
                         <label for="number">Phone Number</label>
