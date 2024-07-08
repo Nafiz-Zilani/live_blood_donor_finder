@@ -3,7 +3,7 @@ session_start();
 require_once "function.php";
 $_user_id = $_SESSION['id'] ?? 0;
 //if (!$_user_id) {
-//    header('Location: home.php');
+//    header('Location: adminlogin.php');
 //    die();
 //}
 include_once('function.php');

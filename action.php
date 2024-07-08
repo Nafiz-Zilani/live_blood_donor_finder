@@ -75,6 +75,7 @@ if (!$connection){
         $status = $_POST['status'] ?? 0;
         if('Accept' == $status){
             $query = "UPDATE notification SET status='1' WHERE reference_id={$ref_id}";
+            $query2 = "UPDATE history SET status='1' WHERE reference_id={$ref_id}";
 
         }
         elseif ('Decline' == $status){

@@ -1,12 +1,32 @@
 <?php
 session_start();
 require_once"function.php";
+include_once('config.php');
 $_user_id = $_SESSION['id'] ?? 0;
 if (!$_user_id){
     header('Location: adminlogin.php');
     die();
 }
 include_once ('function.php');
+$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$status = 0;
+//Total user query
+$total_user_que = "SELECT COUNT(user_id) FROM user_info";
+$total_user_res = mysqli_query($connection, $total_user_que);
+$total_user_count = mysqli_fetch_array($total_user_res)[0];
+//Total user admin
+$total_admin_que = "SELECT COUNT(id) FROM admin_info";
+$total_admin_res = mysqli_query($connection, $total_admin_que);
+$total_admin_count = mysqli_fetch_array($total_admin_res)[0];
+//Total user request
+$total_request_que = "SELECT COUNT(reference) FROM history";
+$total_request_res = mysqli_query($connection, $total_request_que);
+$total_request_count = mysqli_fetch_array($total_request_res)[0];
+//Total user response
+$total_response_que = "SELECT COUNT(reference_id) FROM notification";
+$total_response_res = mysqli_query($connection, $total_response_que);
+$total_response_count = mysqli_fetch_array($total_response_res)[0];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +52,9 @@ include_once ('function.php');
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
     <h5 class="w3-padding-64 w3-center"><b>Live🩸Donor<br>Finder</b></h5>
-    <a href="user_location.php" class="w3-bar-item w3-button">Users</a>
-    <a href="notification.php" class="w3-bar-item w3-button">Admins</a>
+    <a href="admindashboard.php" class="w3-bar-item w3-button">Dashboard</a>
+    <a href="adminusers.php" class="w3-bar-item w3-button">Users</a>
+    <a href="adminuadmin.php" class="w3-bar-item w3-button">Admins</a>
     <a href="adminhistory.php" class="w3-bar-item w3-button">History</a>
     <a href="logout.php" class="w3-bar-item w3-button">Logout</a>
 </nav>
@@ -49,16 +70,32 @@ include_once ('function.php');
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px">
-
-    <div><img src="image/Blood-group-chart.png" id="blood_group_chart"></div>
-
     <hr>
-
-    <div id="blood_donation_speech">
-        <h4>Blood Donation: Be a Lifesaver! 💪</h4>
-        <br>
-        <p>Every drop of blood you donate has the power to save lives. It’s not just about giving blood; it’s an act of kindness that can make a significant impact. By donating just 15–20 minutes of your time and a pint of blood, you become a hero for up to three people in need. Not only do you save their lives, but you also gain insights into your own body. It’s pain-free, easy, and incredibly rewarding. Join us in this noble cause and be part of a community that makes a difference—one drop at a time.</p>
+    <hr>
+    <div class="admindashboard" id="admindashboarduser">
+        <h3>
+            <label for="total_user">Total Number of User :   <?php echo $total_user_count; ?></label>
+        </h3>
     </div>
+    <hr>
+    <div class="admindashboard">
+        <h3>
+            <label for="total_request">Total Number of Admin :   <?php echo $total_admin_count; ?></label>
+        </h3>
+    </div>
+    <hr>
+    <div class="admindashboard">
+        <h3>
+            <label for="total_admin">Total Number of Request:   <?php echo $total_request_count; ?></label>
+        </h3>
+    </div>
+    <hr>
+    <div class="admindashboard">
+        <h3>
+            <label for="total_response">Total Number of Response :   <?php echo $total_response_count; ?></label>
+        </h3>
+    </div>
+
     <!-- Push down content on small screens -->
     <div class="w3-hide-large" style="margin-top:83px"></div>
 

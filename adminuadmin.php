@@ -41,6 +41,7 @@ while ($_data = mysqli_fetch_assoc($result)){
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 <nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
     <h5 class="w3-padding-64 w3-center"><b>Live🩸Donar<br>Finder</b></h5>
+    <a href="admindashboard.php" class="w3-bar-item w3-button">Dashboard</a>
     <a href="adminusers.php" class="w3-bar-item w3-button">Users</a>
     <a href="adminuadmin.php" class="w3-bar-item w3-button">Admins</a>
     <a href="adminhistory.php" class="w3-bar-item w3-button">History</a>

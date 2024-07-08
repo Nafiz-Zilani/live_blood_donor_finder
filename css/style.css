@@ -38,6 +38,11 @@ tr.alt {
     width: auto;
 }
 
+.admindashboard{
+    padding-top: 40px;
+    padding-left: 20%;
+}
+
 /*..*/
 
 #blood_group_chart{
@@ -62,4 +67,8 @@ tr.alt {
     /*width: 1px;*/
     /*height: auto;*/
     /*font-size: 2px;*/
+}
+
+#admindashboarduser{
+    padding-top: 60px;
 }
